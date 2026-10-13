@@ -1,0 +1,54 @@
+﻿@model StudentFeedbackMVC.Models.Feedback
+
+@{
+    Layout = "~/Views/Shared/_LayoutView.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" \ />
+    <title>Feedback Form</title>
+</head>
+<body>
+    <div>
+        @Html.Partial("_StudentInfo")
+        @using (Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(v => v.EnrollmentNo)</td>
+                    <td>@Html.EditorFor(v => v.EnrollmentNo)</td>
+
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.StudentName)</td>
+                    <td>@Html.EditorFor(model => model.StudentName)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.LabelFor(model => model.Subject)</td>
+                    <td>@Html.TextAreaFor(model => model.Subject)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Rating)</td>
+                    <td>@Html.TextAreaFor(model => model.Rating)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Comment)</td>
+                    <td>@Html.TextAreaFor(model => model.Comment)</td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value=" Submit Feedback "/>
+            </p>
+
+        }
+        <br />
+        <p>
+            @Html.ActionLink("Back to List", "Index", "Feedback")
+        </p>
+    </div>
+</body>
+</html>
